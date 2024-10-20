@@ -32,8 +32,8 @@ maven 3.8.7
 
 ### 🔧 Instalação passo a passo
 
-1) Realizar o clone do projeto - git clone https://github.com/bgrbarbosa/tasklist.git<br>
-![image](https://github.com/user-attachments/assets/72f9c0cf-ebd6-466c-80ef-44e3c628ab55)
+1) Realizar o clone do projeto - git clone https://github.com/bgrbarbosa/eventos.git<br>
+![image](https://github.com/user-attachments/assets/5f96fcaf-33a8-45ca-9740-42ff4bee558c)
 
 
 2) Para a build do front-end
@@ -43,22 +43,12 @@ maven 3.8.7
 
 3) Para buildar o back-end
 
-   3.1) Na pasta raiz da api (task-list-api) rodar o comando: mvn clean install (Para instalar as bibliotecas do projeto) <br>
+   3.1) Na pasta raiz da api (eventos-api) rodar o comando: mvn clean install (Para instalar as bibliotecas do projeto) <br>
    3.2) Rodar o comando : spring-boot:run (Para startar o projeto) 
  
 ## ⚙️ Executando os testes
 
-1) Testando o funcionamento da api
-
-   Abrir o navegador e digitar a url http://localhost:8082/swagger-ui/index.html e a tela abaixo deverá ser exibida <br>
-   ![image](https://github.com/user-attachments/assets/ddc328ce-6a94-43a6-9dae-86102cadeb7c)
-
-
-2) Testando o funcionamento do app
-
-   Abrir a url no navegador e digitar a url http://localhost:4200 e a tela abaixo deverá ser exibida.<br>
-   Obs: Caso o banco possua dados, a aplicação deverá apresentar os registros. <br>
-   ![image](https://github.com/user-attachments/assets/b78be46e-2bab-4050-a5d6-b4139e6d90f2)
+Após buildar o front-end e o back-end da aplicação, abrir o navegaor na url http://localhost:4200/home e a tela contendo os eventos cadastrados deverá ser exibida, caso exista evento cadastrado. Caso exista evento e o mesmo não apareca na tela, verifique se a api está de pé.
 
 
 ## 📦 Implantação
