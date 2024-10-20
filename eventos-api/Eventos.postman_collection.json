@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "56a6ac10-1a85-4089-963f-37164f57bb19",
+		"name": "Eventos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16803873"
+	},
+	"item": [
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Buscar todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Imdhc3BhciIsImV4cCI6MTcxMzYzODIwM30.vheEhBnt4xssxrdn6BPSEyt9G7V00pSG9mX4fMcYb1A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"Bruno\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/evento"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IkJydW5vIiwiZXhwIjoxNzEzNjM4NDUxfQ.nyrSkmi6nhBXj6WGuAq1Hc-umIqjKLtvWgMWHKXnEb8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/evento/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Imdhc3BhciIsImV4cCI6MTcxMzYzODg5MX0.Vwmyhro1l3sTxaKIJXVFbX28SZWElWetdGughlZwOC0"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/evento/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Evento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IkJydW5vIiwiZXhwIjoxNzEzNjM4NDUxfQ.nyrSkmi6nhBXj6WGuAq1Hc-umIqjKLtvWgMWHKXnEb8"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"descEvento\": \"T11-2024\",\r\n            \"hrEvento\": \"2023-11-11T23:00:00.000+00:00\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/evento"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Evento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"idEvento\": 1,\r\n        \"descEvento\": \"Curso de Análise de Dados\",\r\n        \"hrEvento\": \"2023-11-11T23:00:00.000+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/evento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Convidados",
+			"item": [
+				{
+					"name": "Buscar todos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6Imdhc3BhciIsImV4cCI6MTcxMzYzODIwM30.vheEhBnt4xssxrdn6BPSEyt9G7V00pSG9mX4fMcYb1A"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/convidado"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8088/convidado/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8088/convidado/11"
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Convidado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeConvidado\": \"Bruno Teste de Validação\",\r\n    \"rgConvidado\": \"223579797\",\r\n    \"cpfConvidado\": \"68250745043\",\r\n    \"telConvidado\": \"24988549631\",\r\n    \"emailConvidado\": \"bgrbarbosa@hotmail.com\",\r\n    \"eventos\": [\r\n        {\r\n            \"idEvento\": \"1\"\r\n        }\r\n    ]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/convidado"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Convidado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\r\n            \"idConvidado\": 1,\r\n            \"nomeConvidado\": \"Bruno Gaspar Romeiro Barbosa\",\r\n            \"rgConvidado\": \"223579798\",\r\n            \"cpfConvidado\": \"10823410706\",\r\n            \"telConvidado\": \"24988549631\",\r\n            \"emailConvidado\": \"bgrbarbosa@hotmail.com\",\r\n            \"eventos\": [\r\n                {\r\n                  \"idEvento\": 1  \r\n                }\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/convidado"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Buscar todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6IkJydW5vIiwiZXhwIjoxNzEzNjM1NjU0fQ.V3jg9apJ9ompxgN9YorECBaPlJTgQWUSHGk9LQ2rLbM"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar por id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8081/users/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"id\": 1,\r\n            \"login\": \"Bruno\",\r\n            \"password\": \"$2a$12$l36yhE5An7WNUNB..hYPReNT/p2yxYbG8sCJ6.g.fTI/1efay3SQy\",\r\n            \"role\": \"ADMIN\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/auth/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"gaspar\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"login\": \"gaspar\",\r\n        \"password\": \"123456\",\r\n        \"role\": \"USER\"\r\n    }    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8088/auth/register"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
