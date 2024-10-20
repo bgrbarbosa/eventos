@@ -1,0 +1,15 @@
+.corpo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 10px; /* Espaçamento entre os cards */
+    max-width: 1200px; /* Ajuste conforme necessário */
+    margin: auto; /* Centraliza o container */
+}
+
+.card {
+    background: lightgray; /* Apenas para visualização */
+    padding: 20px; /* Tamanho do card */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+

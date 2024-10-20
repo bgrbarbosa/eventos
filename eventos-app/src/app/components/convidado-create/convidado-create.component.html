@@ -1,0 +1,40 @@
+<div class="container card">
+    <div class="title">
+        Ficha de inscrição: {{eventoSearch!.titleEvento}}
+    </div> 
+    <form #convidadoForm="ngForm" (ngSubmit)="onSubmit()">          
+        <div class="mb-3">
+            <label for="eventoConvidado" class="form-label">ID do convidado</label>
+            <input type="text" class="form-control" id="eventoConvidado"
+                [(ngModel)]="id" name="eventoConvidado" disabled/>    
+        </div>
+
+        <div class="mb-3">
+            <label for="cpfConvidado" class="form-label">CPF do convidado</label>
+            <input type="text" class="form-control" id="cpfConvidado"
+                [(ngModel)]="convidado.cpfConvidado" name="cpfConvidado" disabled/>    
+        </div>
+
+        <div class="mb-3">
+            <label for="nomeConvidado" class="form-label">Nome do convidado</label>
+            <input type="text" class="form-control" id="nomeConvidado"
+                [(ngModel)]="convidado.nomeConvidado" name="nomeConvidado"/>    
+        </div>
+        
+        <div class="mb-3">
+            <label for="telConvidado" class="form-label">Telefone do convidado</label>
+            <input type="text" class="form-control" id="telConvidado" 
+                [(ngModel)]="convidado.telConvidado" name="telConvidado"/>  
+        </div>
+        
+        <div class="mb-3">
+            <label for="emailConvidado" class="form-label">Email do convidado</label>
+            <input type="email" class="form-control" id="emailConvidado"
+                [(ngModel)]="convidado.emailConvidado" name="emailConvidado"/>  
+        </div>
+        <button type="submit" class="btn btn-success me-2">Cadastrar</button>
+        <button type="submit" class="btn btn-danger" routerLink="/">Cancelar</button>
+    </form>    
+</div>
+
+

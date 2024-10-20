@@ -1,0 +1,14 @@
+.title{
+    text-align: center;
+}
+
+.titleDelete{
+    text-align: center;
+    size: 8px;
+    font-weight: bold;
+}
+
+.modal-convidados{
+    max-width: 800px; /* Define a largura máxima do modal */
+    width: 100%; /* Garante que o modal use 100% da largura disponível até o máximo de 800px */
+}

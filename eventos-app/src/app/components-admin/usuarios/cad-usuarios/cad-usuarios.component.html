@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="card text-bg-light mb-3" style="max-width: 100%">
+        <div class="card-header">Cadastro de Usuario</div>
+        <div class="card-body">
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert" *ngIf="success == true">
+                        Task registered successfully  
+                    </div>
+        
+                    <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                        {{error.message}}   
+                    </div>
+                </div>
+            </div> -->
+            <form #taskForm="ngForm" (ngSubmit)="onSubmit()">             
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Id Usuario</label>
+                            <input type="text" class="form-control"
+                                name="idTask" disabled="true"
+                                [(ngModel)]="usuario.id" name="id"/>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Username</label>
+                            <input type="text" class="form-control"
+                                name="username"
+                                [(ngModel)]="usuario.username" name="username"/>
+                        </div>  
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Password</label>
+                            <input type="password" class="form-control" step="1"
+                                [(ngModel)]="usuario.password" name="password"/>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="!usuario.id">
+                                Save
+                            </button>
+
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="usuario.id">
+                                Update
+                            </button>
+
+                            <button type="button" class="btn btn-danger" routerLink="/adm/user">
+                                Cancel
+                            </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

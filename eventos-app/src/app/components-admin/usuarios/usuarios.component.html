@@ -1,0 +1,72 @@
+<h3 class="breadcrumb-item active title">Controle de Usuarios</h3>
+<button type="button" class="btn btn-success mt-3 mb-3 me-3" routerLink="/adm/cad-user">Cadastrar</button>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('id')">Id Usuario</button><br>
+                        <input type="text" class="form-control" placeholder="Pesquisar Id"
+                             [(ngModel)]="filtros.id" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('username')">Username</button>
+                        <input type="text" class="form-control" placeholder="Pesquisar nome"
+                        [(ngModel)]="filtros.username" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <label type="button" class="btn">Password</label>
+                    </th>
+
+                    <th>
+                        <button type="button" class="btn btn-success mt-3" (click)="limparFiltros()">Limpar Filtros</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuariosFiltrados | paginate: { itemsPerPage: itensPorPagina, currentPage: p }">
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.password }}</td>
+                    <td>
+                        <button class="btn btn-outline-primary me-2" >
+                            <i class="fa fa-edit" routerLink="/adm/cad-user/{{ usuario.id }}">Editar</i>
+                        </button>
+
+                        <button class="btn btn-outline-danger me-2" data-toggle="modal" data-target="#modalDelete" 
+                            style="margin-right: 3px;" (click) = "preparaDelete(usuario)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="title">
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirma a exclusão do usuario?</h4>
+                </div>
+
+                <div class="modal-body" *ngIf="usuarioSelecionado">
+                    <p titleDelete>Nome do usuario: {{ usuarioSelecionado.username }}</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletar()"  
+                            data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+

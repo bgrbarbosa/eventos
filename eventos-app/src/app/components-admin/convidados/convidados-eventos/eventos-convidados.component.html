@@ -1,0 +1,42 @@
+<h3 class="breadcrumb-item active title">Lista de convidados ({{convidado.nomeConvidado}})</h3>
+<button type="button" class="btn btn-success mt-3 mb-3 me-3" routerLink="/adm/convidados">
+    Sair
+</button>
+
+<table class="table table-condensed table-hover table-striped">
+  <thead class="table-success">
+    <tr>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('idEvento')">Id</button><br>
+        <input type="text" class="form-control" placeholder="Pesquisar Id"
+             [(ngModel)]="filtros.idEvento" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('titleEvento')">Nome</button>
+        <input type="text" class="form-control" placeholder="Pesquisar Titulo"
+        [(ngModel)]="filtros.titleEvento" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('dtEvento')">Data</button>
+        <input type="text" class="form-control" placeholder="Pesquisar data"
+        [(ngModel)]="filtros.dtEvento" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('hrEvento')">Hora</button>
+        <input type="text" class="form-control" placeholder="Pesquisar Hora"
+        [(ngModel)]="filtros.hrEvento" (input)="filtrar()">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>{{evento.idEvento}}</td>
+      <td>{{evento.titleEvento}}</td>
+      <td>{{evento.dtEvento}}</td>
+      <td>{{evento.hrEvento}}</td>  
+    </tr>
+  </tbody>
+  <div class="title">
+    <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+  </div>
+</table>

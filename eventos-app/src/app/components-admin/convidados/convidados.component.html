@@ -1,0 +1,77 @@
+<h3 class="breadcrumb-item active title">Controle dos Convidados</h3>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('idConvidado')">Id Convidado</button><br>
+                        <input type="text" class="form-control" placeholder="Pesquisar Id"
+                             [(ngModel)]="filtros.idConvidado" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('nomeConvidado')">Nome</button>
+                        <input type="text" class="form-control" placeholder="Pesquisar nome"
+                        [(ngModel)]="filtros.nomeConvidado" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('telConvidado')">Telefone</button>
+                        <input type="text"  class="form-control" placeholder="Pesquisar Telefone"
+                            [(ngModel)]="filtros.telConvidado" (input)="filtrar()">
+                    </th>
+
+                    <th>
+                        <button type="button" class="btn btn-success mt-3" (click)="limparFiltros()">Limpar Filtros</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let convidado of convidadosFiltrados | paginate: { itemsPerPage: itensPorPagina, currentPage: p }">
+                    <td>{{ convidado.idConvidado }}</td>
+                    <td>{{ convidado.nomeConvidado }}</td>
+                    <td>{{ convidado.telConvidado }}</td>
+                    <td>
+                        <button class="btn btn-outline-primary me-2" >
+                            <i class="fa fa-edit" routerLink="/adm/cad-convidado/{{ convidado.idConvidado }}">Editar</i>
+                        </button>
+
+                        <button class="btn btn-outline-danger me-2" data-toggle="modal" data-target="#modalDelete" 
+                            style="margin-right: 3px;" (click) = "preparaDelete(convidado)">
+                            Delete
+                        </button>
+
+                        <button class="btn btn-outline-secondary me-2" 
+                            style="margin-right: 3px;"  routerLink="/adm/eventos-convidados/{{ convidado.idConvidado }}">
+                            Eventos
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="title">
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirma a exclusão do convidado?</h4>
+                </div>
+
+                <div class="modal-body" *ngIf="convidadoSelecionado">
+                    <p titleDelete>Nome do convidado: {{ convidadoSelecionado.nomeConvidado }}</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletar()"  
+                            data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+

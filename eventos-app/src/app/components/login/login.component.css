@@ -1,0 +1,12 @@
+.login-container{
+    display: flex;                   /* Habilita o uso de flexbox */
+    justify-content: center;         /* Alinha horizontalmente ao centro */
+    align-items: center; 
+    margin-top: 5%;            /* Alinha verticalmente ao centro */
+}
+
+.size {    
+    width: 400px;
+    height: 300px;
+    padding-top: 2%;
+}

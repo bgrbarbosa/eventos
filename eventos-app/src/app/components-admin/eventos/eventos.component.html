@@ -1,0 +1,85 @@
+<h3 class="breadcrumb-item active title">Controle dos Eventos</h3>
+<button type="button" class="btn btn-success mt-3 mb-3 me-3" routerLink="/adm/cad-evento">
+    Cadastrar
+</button>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-hover table-striped">
+            <thead class="table-success">
+                <tr>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('idEvento')">Id Evento</button><br>
+                        <input type="text" class="form-control" placeholder="Pesquisar Id"
+                             [(ngModel)]="filtros.idEvento" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('titleEvento')">Título Evento</button>
+                        <input type="text" class="form-control" placeholder="Pesquisar title"
+                        [(ngModel)]="filtros.titleEvento" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('dtEvento')">Data do Evento</button>
+                        <input type="date" class="form-control" placeholder="Pesquisar por data"
+                            [(ngModel)]="filtros.dtEvento" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn" (click)="ordenar('hrEvento')">Hora do Evento</button>
+                        <input type="time" step="1" class="form-control" placeholder="Pesquisar Hora"
+                            [(ngModel)]="filtros.hrEvento" (input)="filtrar()">
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-success mt-3" (click)="limparFiltros()">Limpar Filtros</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let evento of eventosFiltrados | paginate: { itemsPerPage: itensPorPagina, currentPage: p }">
+                    <td>{{ evento.idEvento }}</td>
+                    <td>{{ evento.titleEvento }}</td>
+                    <td>{{ evento.dtEvento }}</td>
+                    <td>{{ evento.hrEvento }}</td>
+                    <td>
+                        <button class="btn btn-outline-primary me-2" >
+                            <i class="fa fa-edit" routerLink="/adm/cad-evento/{{ evento.idEvento }}">Editar</i>
+                        </button>
+
+                        <button class="btn btn-outline-danger me-2" data-toggle="modal" data-target="#modalDelete" 
+                            style="margin-right: 3px;" (click) = "preparaDelete(evento)">
+                            Delete
+                        </button>
+
+                        <button class="btn btn-outline-secondary me-2" 
+                            style="margin-right: 3px;" routerLink="/adm/convidados-eventos/{{ evento.idEvento }}">
+                            Convidados
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="title">
+            <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirma a exclusão do evento?</h4>
+                </div>
+
+                <div class="modal-body" *ngIf="eventoSelecionado">
+                    <p titleDelete>Nome do evento: {{ eventoSelecionado.titleEvento }}</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletar()"  
+                            data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+

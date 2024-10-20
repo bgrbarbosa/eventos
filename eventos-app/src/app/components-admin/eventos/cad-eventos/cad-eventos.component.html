@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="card text-bg-light mb-3" style="max-width: 100%">
+        <div class="card-header">Cadastro de Eventos</div>
+        <div class="card-body">
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert" *ngIf="success == true">
+                        Task registered successfully  
+                    </div>
+        
+                    <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                        {{error.message}}   
+                    </div>
+                </div>
+            </div> -->
+            <form #taskForm="ngForm" (ngSubmit)="onSubmit()">             
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Id Evento</label>
+                            <input type="text" class="form-control"
+                                name="idTask" disabled="true"
+                                [(ngModel)]="evento.idEvento" name="idEvento"/>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Data do Evento</label>
+                            <input type="date" class="form-control"
+                                name="dataInit"
+                                [(ngModel)]="evento.dtEvento" name="dtEvento"/>
+                        </div>  
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Horário</label>
+                            <input type="time" class="form-control" step="1"
+                                [(ngModel)]="evento.hrEvento" name="hrEvento"/>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Titulo do Evento</label>
+                            <input type="text" class="form-control"
+                                name="descTask" [(ngModel)]="evento.titleEvento" name="titleEvento"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Descrição do Evento</label>
+                            <textarea class="form-control" id="descEvento" 
+                                rows="6" [(ngModel)]="evento.descEvento" name="descEvento"></textarea>    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="!evento.idEvento">
+                                Save
+                            </button>
+
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="evento.idEvento">
+                                Update
+                            </button>
+
+                            <button type="button" class="btn btn-danger" routerLink="/adm/eventos">
+                                Cancel
+                            </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

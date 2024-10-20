@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="card text-bg-light mb-3" style="max-width: 100%">
+        <div class="card-header">Cadastro de Convidados</div>
+        <div class="card-body">
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert" *ngIf="success == true">
+                        Task registered successfully  
+                    </div>
+        
+                    <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                        {{error.message}}   
+                    </div>
+                </div>
+            </div> -->
+            <form #taskForm="ngForm" (ngSubmit)="onSubmit()">             
+                <div class="row">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Id Convidado</label>
+                            <input type="text" class="form-control"
+                                name="idConvidado" disabled="true"
+                                [(ngModel)]="convidado.idConvidado" name="idConvidado"/>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Nome</label>
+                            <input type="text" class="form-control"
+                                name="dataInit"
+                                [(ngModel)]="convidado.nomeConvidado" name="nomeConvidado"/>
+                        </div>  
+                    </div>
+
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">CPF</label>
+                            <input type="text" class="form-control"
+                                [(ngModel)]="convidado.cpfConvidado" name="cpfConvidado"/>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Telefone</label>
+                            <input type="text" class="form-control"
+                                name="telConvidado" [(ngModel)]="convidado.telConvidado" name="telConvidado"/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="emailConvidado" class="form-label">Email</label>
+                            <input type="text" class="form-control"
+                            name="emailConvidado" [(ngModel)]="convidado.emailConvidado" name="emailConvidado"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="!convidado.idConvidado">
+                                Save
+                            </button>
+
+                            <button type="submit" class="btn btn-success" style="margin-right: 3px;" *ngIf="convidado.idConvidado">
+                                Update
+                            </button>
+
+                            <button type="button" class="btn btn-danger" routerLink="/adm/convidados">
+                                Cancel
+                            </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

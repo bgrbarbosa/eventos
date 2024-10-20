@@ -1,0 +1,48 @@
+<h3 class="breadcrumb-item active title">Lista de convidados ({{evento.titleEvento}})</h3>
+<button type="button" class="btn btn-success mt-3 mb-3 me-3" routerLink="/adm/eventos">
+    Sair
+</button>
+
+<table class="table table-condensed table-hover table-striped">
+  <thead class="table-success">
+    <tr>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('idConvidado')">Id</button><br>
+        <input type="text" class="form-control" placeholder="Pesquisar Id"
+             [(ngModel)]="filtros.idConvidado" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('nomeConvidado')">Nome</button>
+        <input type="text" class="form-control" placeholder="Pesquisar nome"
+        [(ngModel)]="filtros.nomeConvidado" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('cpfConvidado')">CPF</button>
+        <input type="text" class="form-control" placeholder="Pesquisar CPF"
+        [(ngModel)]="filtros.cpfConvidado" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('telConvidado')">Telefone</button>
+        <input type="text" class="form-control" placeholder="Pesquisar telefone"
+        [(ngModel)]="filtros.telConvidado" (input)="filtrar()">
+      </th>
+      <th>
+        <button type="button" class="btn" (click)="ordenar('emailConvidado')">Email</button>
+        <input type="text" class="form-control" placeholder="Pesquisar email"
+        [(ngModel)]="filtros.emailConvidado" (input)="filtrar()">
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let convidado of convidadosFiltrados">
+      <td>{{convidado.idConvidado}}</td>
+      <td>{{convidado.nomeConvidado}}</td>
+      <td>{{convidado.cpfConvidado}}</td>
+      <td>{{convidado.telConvidado}}</td>
+      <td>{{convidado.emailConvidado}}</td>  
+    </tr>
+  </tbody>
+  <div class="title">
+    <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+</div>
+</table>

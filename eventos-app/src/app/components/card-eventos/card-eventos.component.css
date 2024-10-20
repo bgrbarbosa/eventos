@@ -1,0 +1,20 @@
+p {
+    text-align: justify;
+}
+
+.title {
+    text-align: center;
+}
+
+.timestamp {
+    text-align: center;
+}
+
+button {
+    margin-right: 3px;
+}
+
+.corpo{
+    width: 350px;
+    height: 200px;
+}

@@ -1,0 +1,33 @@
+  <div class="card corpo">
+    <div class="card-header">
+      <h6 class="title">{{evento.titleEvento}}</h6>
+    </div>
+    <div class="card-body">
+      <div class="card-body timestamp">
+        <h6>Data: {{evento.dtEvento}} às Hora: {{evento.hrEvento}}</h6>
+      </div>     
+    </div>
+    <div class="card-body title">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventoModal">Detalhes</button>
+      <button type="button" class="btn btn-primary" routerLink="/inscricao/{{ evento.idEvento }}">Inscrever-se</button>
+    </div>
+  </div>
+
+<!-- Modal para detalhes do Evento -->
+<div class="modal fade" id="eventoModal" tabindex="-1" aria-labelledby="eventoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventoModalLabel">{{evento.titleEvento}}</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Data: {{evento.dtEvento}} às Hora: {{evento.hrEvento}}</p>
+        <p>{{evento.descEvento}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
